@@ -17,7 +17,7 @@ const Login = () => {
     }
   return (
     <div className='flex justify-center'>
-    <div className='flex md:w-1/2  md:mt-20 w-full place-items-center   bg-stone-100  rounded-2xl shadow-2xl overflow-hidden'>
+    <div className='flex md:w-1/2  md:mt-20 w-full place-items-center   bg-stone-100  rounded-2xl shadow-2xl overflow-hidden hover:scale-[1.02] transition-transform duration-500'>
         <div className='lg:w-1/2 2xl:w-full w-full p-5 '> 
             <div>
                 <p className='text-blue-900 font-bold text-4xl'>Login</p>

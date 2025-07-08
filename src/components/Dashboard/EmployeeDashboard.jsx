@@ -1,5 +1,6 @@
 import Header from "../others/Header"
 import EmployeeCard1 from "../others/EmployeeCard1"
+import TaskList from "../TaskList/TaskList"
 
 const EmployeeDashboard = () => {
 
@@ -27,13 +28,13 @@ const EmployeeDashboard = () => {
 ]
   return (
     <>
-    <Header></Header>
-    <div className='grid lg:grid-cols-4 gap-2'>
+        <Header></Header>
+    <div className='grid   md:grid-cols-2  lg:grid-cols-4 gap-2 '>
         {Data.map((data) => ( 
-            <EmployeeCard1 data = {data}></EmployeeCard1>
+        <EmployeeCard1 data = {data}></EmployeeCard1>
         ))} 
     </div> 
-    
+        <TaskList></TaskList>
     </>
   )
 }
