@@ -1,6 +1,6 @@
 
 
-const EmployeeCard1 = ({data}) => {
+const EmployeeCard1 = ({data }) => {
   return (
     <>
     <div className={`p-5 ${data.color} ${data.hover} rounded-lg text-white text-2xl font-semibold `}>

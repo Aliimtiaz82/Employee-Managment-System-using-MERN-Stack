@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 
-const Login = () => {
+const Login = ({handlelogin}) => {
 
 
 
@@ -8,7 +8,9 @@ const Login = () => {
     let [password  , setPassword] = useState('')
 
     const handleChange = (event) =>{
-        event.preventDefault();
+        event.preventDefault(); 
+        
+        handlelogin(email , password)
         console.log("your email is " + email);
         console.log('ypur pass is ' + password)
        
