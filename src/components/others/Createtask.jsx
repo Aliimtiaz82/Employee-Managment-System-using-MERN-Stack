@@ -1,9 +1,17 @@
-import React from "react";
 
 const CreateTask = () => {
+
+  const submitHandler = () =>{
+    e.preventDefault()
+    console.log('Task Created')
+  }
+
   return (
     <div className="lg:px-10">
       <form
+      onSubmit={(e) => {
+        submitHandler(e)
+      }}
         className="w-full space-y-6 rounded-3xl bg-white shadow-xl/30 ring-1 ring-indigo-100 p-10
                    transition-transform duration-300 hover:scale-[1.02]"
       >
@@ -92,9 +100,9 @@ const CreateTask = () => {
           <button
             type="submit"
             className="w-full inline-flex items-center justify-center gap-2 rounded-2xl bg-indigo-600
-                       px-6 py-3 font-semibold text-white tracking-wide shadow-lg shadow-indigo-600/40
-                       hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300
-                       active:scale-95 transition"
+                      px-6 py-3 font-semibold text-white tracking-wide shadow-lg shadow-indigo-600/40
+                    hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300
+                      active:scale-95 transition"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

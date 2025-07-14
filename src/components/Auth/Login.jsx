@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 
 const Login = ({handlelogin}) => {
 
@@ -12,7 +12,7 @@ const Login = ({handlelogin}) => {
         
         handlelogin(email , password)
         console.log("your email is " + email);
-        console.log('ypur pass is ' + password)
+        console.log('your pass is ' + password)
        
         setEmail('');
         setPassword('');
@@ -28,9 +28,9 @@ const Login = ({handlelogin}) => {
             <div>
                 <form onSubmit={(e) => {handleChange(e)}} className='mt-5 flex  flex-col' > 
                     <label htmlFor="email" >Email Address</label>
-                    <input required value={email}  onChange={(e) => setEmail(e.target.value)} type="email" className='p-3 bg-stone-200 rounded-lg' name="email" id=""placeholder='Enter Email Address' />
+                    <input required value={email}  onChange={(e) => setEmail(e.target.value)} type="email" className='p-3 bg-stone-200 rounded-lg' name="email"  placeholder='Enter Email Address' />
                     <label htmlFor="pass" className='mt-4'>Password</label>
-                    <input required value={password} onChange={(e) => setPassword(e.target.value)} type="password" className='p-3 bg-stone-200 rounded-lg' name="pass" id="" placeholder='Enter Password'/>
+                    <input required value={password} onChange={(e) => setPassword(e.target.value)}  type="password" className='p-3 bg-stone-200 rounded-lg' name="pass"  placeholder='Enter Password'/>
                     <a href="" className='text-blue-500 text-end my-3'>Forgot Password?</a>
                     <button type='submit' className='bg-blue-500 p-3 rounded-lg text-white font-bold hover:bg-blue-600 hover:cursor-pointer '>Log in</button>
                 </form> 
