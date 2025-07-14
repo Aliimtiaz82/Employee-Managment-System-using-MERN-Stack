@@ -13,7 +13,7 @@ const App = () => {
   //  getLocalStorege();
   //   },);
     
-  const authdata = useContext(AuthContext);
+  const [authdata] = useContext(AuthContext);
 
   const [loggedInUserData, setLoggedInUserData] = useState(null);
   const [user, setUser] = useState(null);
@@ -30,7 +30,7 @@ const App = () => {
   );
   if (admin) {
     setUser("admin");
-    setLoggedInUserData(admin); 
+    setLoggedInUserData(admin);
     localStorage.setItem("loggedInUser", JSON.stringify({ role: "admin" }));
     return;
   }

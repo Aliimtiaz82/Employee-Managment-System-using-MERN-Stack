@@ -1,9 +1,36 @@
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const CreateTask = () => {
+  let [authData , setAuthdata] = useContext(AuthContext)
 
-  const submitHandler = () =>{
+  let [taskTitle , setTaskTitle] = useState('')
+  let [taskDescription , setTaskDescription] = useState('')
+  let [taskDate , setTaskDate] = useState('')
+  let [asignTo , setAsignTo] = useState('')
+  let [category , setCategory] = useState('')
+
+  let [task , setTask] = useState('')
+
+  const submitHandler = (e) =>{
     e.preventDefault()
-    console.log('Task Created')
+    setTask({taskTitle , taskDescription , taskDate , asignTo , category , active:false, newTask:true , failed:false , completed:false})
+
+    const data = authData.employees
+    data.forEach((elem) =>{
+      if(asignTo == elem.firstName){
+        elem.tasks.push(task)
+        elem.taskCounts.task = elem.taskCounts.task+1 ;
+      }
+    })
+    setAuthdata(data)
+
+    
+    setTaskTitle(''),
+    setTaskDescription(''),
+    setTaskDate(''),
+    setAsignTo(''),
+    setCategory('')
   }
 
   return (
@@ -26,6 +53,10 @@ const CreateTask = () => {
           </label>
           <input
             id="title"
+            value={taskTitle}
+            onChange={(e) => {
+              setTaskTitle(e.target.value)
+            }}
             type="text"
             required
             placeholder="e.g., Finish dashboard UI"
@@ -40,6 +71,10 @@ const CreateTask = () => {
             Description
           </label>
           <textarea
+          value={taskDescription}
+          onChange={(e) => {
+            setTaskDescription(e.target.value)
+          }}
             id="desc"
             rows="4"
             placeholder="Briefly describe the task..."
@@ -55,6 +90,10 @@ const CreateTask = () => {
               Date
             </label>
             <input
+            value={taskDate}
+            onChange={(e) => {
+              setTaskDate(e.target.value)
+            }}
               id="date"
               type="date"
               required
@@ -68,6 +107,10 @@ const CreateTask = () => {
               Assign&nbsp;to
             </label>
             <input
+            value={asignTo}
+            onChange={(e) => {
+              setAsignTo(e.target.value)
+            }}
               id="assign"
               type="text"
               placeholder="Ali Imtiaz"
@@ -83,6 +126,10 @@ const CreateTask = () => {
             Category
           </label>
           <select
+          value={category}
+          onChange={(e) => {
+            setCategory(e.target.value)
+          }}
             id="category"
             className="w-full rounded-xl border-gray-300 focus:border-indigo-500 focus:ring-indigo-500
                        text-sm py-3 px-4 shadow-sm bg-white"
